@@ -23,13 +23,13 @@ socket.on('connect', function () {
       alert(err);
       window.location.href = '/';
     } else {
-      console.log('No error');
+      console.log('Connect to server.');
     };
   });
 });
 
 socket.on('disconnect', function () {
-  console.log('Disconnected from server');
+  console.log('Disconnected from server.');
 });
 
 socket.on('updateUserList', function (users) {
@@ -74,7 +74,6 @@ jQuery('#message-form').on('submit', function (e) {
   var messageTextbox = jQuery('[name=message]');
 
   socket.emit('createMessage', {
-    from: 'User',
     text: messageTextbox.val()
   }, function () {
     messageTextbox.val('');
